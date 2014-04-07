@@ -7,7 +7,7 @@ I have been misled for ages by this assertion because I was thinking that it wou
 
 I discovered that, a few years ago, by reading a little comment from Sasha Chedygov : http://stackoverflow.com/questions/9641155/object-literal-notation-vs-prototype-speed-and-memory#comment12424338_9641155, I discovered then that browser memory wasn’t so damn sucked by literal instantiable objects than many would suggest it in their articles and discussions. But how calculate aftermath of choosing literal object form instead of prototyped one?
 
-A thing that I learned from our great ninja Master John Reisig by reading his masterpiece book “Sectets of the Javascript Ninja” is testing by ourselves JavaScript behaviors is a good way to have answers we want :). So let’s do it.
+A thing that I learned from our beloved Ninja Master John Reisig by reading his masterpiece book “Sectets of the Javascript Ninja” is testing by ourselves JavaScript behaviors is a good way to have answers we want :). So let’s do it.
 
 Test time
 ---------
