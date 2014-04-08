@@ -1,13 +1,13 @@
 Literal object methods VS prototyped methods? What’s about memory?
 =================================================================
 
-I’ve often read on web articles related to JavaScript object that literal objects where heavier than prototyped objects because function defined directly into literal object were duplicated for each instance instead of instantiated from prototype.
+I’ve often read on some web articles related to JavaScript objects that literal instantiable objects (that we would have called class in some others objects languages) where heavier than prototyped objects because methods defined directly into literal objects were duplicated for each instance instead of being instantiated from the prototype.
 
-I have been misled for ages by this assertion because I was thinking that it would means that function was really duplicated - code included. I thus, for a long time, avoided using literal object but the fact is – memory overconsumption may be fairly limited, because the part of duplicated stuff for function defined in literal instantiated object is so!
+I have been misled for ages by this assertion because I was thinking it would means that methods where really, fully duplicated - code included. Thus, for a long time, I reluctantly used literal instantiable objects, but the fact is – memory overconsumption may be fairly limited, because the part of duplicated stuff for methods defined into literal instantiated object is so!
 
-I discovered that, a few years ago, by reading a little comment from Sasha Chedygov : http://stackoverflow.com/questions/9641155/object-literal-notation-vs-prototype-speed-and-memory#comment12424338_9641155, I discovered then that browser memory wasn’t so damn sucked by literal instantiable objects than many would suggest it in their articles and discussions. But how calculate aftermath of choosing literal object form instead of prototyped one?
+I discovered that, a few years ago, by reading a little comment from Sasha Chedygov : http://stackoverflow.com/questions/9641155/object-literal-notation-vs-prototype-speed-and-memory#comment12424338_9641155, I realized then that browser’s memory wasn’t so damn sucked by literal instantiable objects than many would imply it in web articles and discussions. But how calculate aftermath of choosing literal instantiable objects form instead of prototyped one?
 
-A thing that I learned from our beloved Ninja Master John Reisig by reading his masterpiece book “Sectets of the Javascript Ninja” is testing by ourselves JavaScript behaviors is a good way to have answers we want :). So let’s do it.
+A thing that I learned from our great ninja Master John Reisig by reading his masterpiece book “Sectets of the Javascript Ninja” is that testing by ourselves JavaScript behaviors is a good way to have answers we want :). So let’s do it.
 
 Test time
 ---------
@@ -41,7 +41,7 @@ Literal Object test:
 - Test object(LiteralTest) instances:
     - 68b / instance
     - 10000 instances
-    - 68 * 10000 = 680000 b (around … we have some extra bits in the total amount)
+    - 68 * 10000 = 680000 b (or about cause we have some extra bytes in the LiteralTest total amount)
 Prototype Object test:
 - Global Memory : 2.5mb
 - Test object (PrototypedTest) instances:
@@ -67,9 +67,9 @@ With 10 methods for each case we now have:
 Conclusion:
 -----------
 
-So the difference is 56 o x objects instance x number of methods for webkit (Chrome)! It’s certainly a bit different for Gecko based browsers and IE but not that different (hope so!).
+So the gap is 56 o x objects instance x number of methods for webkit (Chrome)! It’s certainly a bit different for Gecko based browsers and IE but not that different (hope so!). Feel free to test it yourself and report results here.
 
-So 56b per method per instance, it’s important but not that much. If I take for example an object that would be instantiated 100 times using five methods, the difference is 56 x 5 x 100 = 28000 (28kb). Is it an expensive cost to pay to be able to grant access to wonderful closure capabilities offended by literal objects such as privacy?
+So 56b per method per instance, it’s important but not that much. If I take for example an object that would be instantiated 100 times using five methods, the difference is 56 x 5 x 100 = 28000 (28kb). Is it an expensive cost to pay to be able to grant access to wonderful closure capabilities offered by literal objects such as privacy?
 
 However this amount of extra memory can be relevant in certain case, when object have many methods or are instantiated many times.
 
